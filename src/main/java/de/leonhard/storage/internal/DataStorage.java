@@ -7,6 +7,7 @@ import de.leonhard.storage.util.Valid;
 import java.util.*;
 import java.util.stream.Collectors;
 import lombok.NonNull;
+import net.md_5.bungee.api.ChatColor;
 import org.jetbrains.annotations.Nullable;
 
 public interface DataStorage {
@@ -114,6 +115,16 @@ public interface DataStorage {
   }
 
   /**
+   * Get a minecraft colored text from a data-structure
+   *
+   * @param key Path to String in data-structure
+   * @return Returns the value
+   */
+  default String getText(final String key) {
+    return ChatColor.translateAlternateColorCodes('&', getString(key));
+  }
+
+  /**
    * Gets a long from a data-structure by key
    *
    * @param key Path to long in data-structure
@@ -196,6 +207,13 @@ public interface DataStorage {
 
   default List<String> getStringList(final String key) {
     return getOrDefault(key, new ArrayList<>());
+  }
+
+  default List<String> getTextList(final String key) {
+    List<String> list = new ArrayList<String>();
+    for (String text : getStringList(key))
+      list.add(ChatColor.translateAlternateColorCodes('&', text));
+    return list;
   }
 
   default List<Integer> getIntegerList(final String key) {

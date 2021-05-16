@@ -169,6 +169,14 @@
       <version>RELEASE</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- Spigot -->
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot-api</artifactId>
+      <version>1.8.8-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <description>Store data in a better way</description>
   <developers>
@@ -219,6 +227,11 @@
     <repository>
       <id>json</id>
       <url>https://mvnrepository.com/artifact/org.json/json</url>
+    </repository>
+
+    <repository>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
   </repositories>
 
